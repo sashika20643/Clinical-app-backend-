@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('role')->default(0);
             $table->string('surName');
             $table->string('dateOfBirth');
-            $table->string('phone')->unique();
+            $table->string('phone');
             $table->string('patientNo')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
