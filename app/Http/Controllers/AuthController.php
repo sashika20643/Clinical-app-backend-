@@ -40,7 +40,14 @@ $user=User::create(
     [
         'name'=>$request->name,
         'email'=> $request->email,
-        'password'=>Hash::make($request->password)
+        'password'=>Hash::make($request->password),
+        'surName'=>$request->surName,
+        'patientNo'=>$request->patientNo,
+        'dateOfBirth'=>$request->dateOfBirth,
+        'phone'=>$request->phone,
+
+
+
     ]
     );
 
@@ -53,7 +60,10 @@ $user=User::create(
 
 }
 public function logout(){
-    return "this is Logout";
+   Auth::user()->currentAccessToken()->delete();
+   return $this->success([
+    'message' => "you have been logout successfuly."
+]);
 
 }
 }
