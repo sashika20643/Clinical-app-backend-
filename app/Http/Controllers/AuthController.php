@@ -18,11 +18,26 @@ class AuthController extends Controller
 public function login(LoginUserRequest $request){
 
     $request->validated($request->all());
-    if(!Auth::attempt($request->only(['email', 'password']))) {
+
+        $loginType = filter_var($request->login, FILTER_VALIDATE_EMAIL) ? 'email' : 'patientNo';
+
+    // Add the login type to the credentials array
+    $credentials = [
+        $loginType => $request->login,
+        'password' => $request->password
+    ];
+    if(!Auth::attempt($credentials)) {
         return $this->error('', 'Credentials do not match', 401);
     }
 
-    $user = User::where('email', $request->email)->first();
+    if($loginType=='email'){
+        $user = User::where('email', $request->login)->first();
+
+    }
+    else{
+    $user = User::where('patientNo', $request->login)->first();
+
+    }
 
     return $this->success([
         'user' => $user,
