@@ -26,6 +26,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
         return $request->user();
     });
     Route::post('/addchanel', [WaitingController::class, 'store']);
+    Route::post('/yettogo', [WaitingController::class, 'yettogo']);
 
 
 });
