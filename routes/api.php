@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\WaitingController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +25,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+    Route::post('/addchanel', [WaitingController::class, 'store']);
+
 
 });
-
-Route::get('/test', function (Request $request) {
-    return "recived";
-});
+// Route::post('/addchanel', [WaitingController::class, 'store']);
