@@ -33,7 +33,10 @@ class User extends Authenticatable
         'password',
 
     ];
-
+    public function waitinglists()
+    {
+        return $this->hasMany(Waitinglist::class, 'u_id');
+    }
     /**
      * The attributes that should be hidden for serialization.
      *

@@ -23,7 +23,11 @@
   <link id="pagestyle" href="{{asset('/assets/css/soft-ui-dashboard.css?v=1.0.6')}}" rel="stylesheet" />
   <link rel="stylesheet" href="{{asset('Js/style.css')}}">
   <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-
+<style>
+    th,td{
+        text-align: center !important;
+    }
+</style>
 </head>
 
 <body class="g-sidenav-show  bg-gray-100">
@@ -76,7 +80,7 @@ if(window.location.href ==`` ){
 if(window.location.href ==`` ){
     document.getElementById('files').classList.add("active");
 }
-if(window.location.href ==`` ){
+if(window.location.href ==`{{route('usersview')}}` ){
     document.getElementById('users').classList.add("active");
 }
 

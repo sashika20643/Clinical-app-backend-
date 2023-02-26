@@ -21,11 +21,17 @@ if($channel=Waitinglist::where('date',$request->date)->where('c_id',$request->c_
 }
     $count=Waitinglist::where('date',$request->date)->where('c_id',$request->c_id)->max('possition');
     $pos=$count+1;
+    if($request->date){
+        $date=$request->date;
+    }
+    else{
+        $date="00-00-00";
+    }
     $wait=Waitinglist::create(
         [
             'c_id'=>$request->c_id,
             'u_id'=> $request->user()->id,
-            'date'=>$request->date,
+            'date'=>$date,
             'possition'=>$pos,
 
 
