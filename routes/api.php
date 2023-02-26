@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\WaitingController;
+use App\Http\Controllers\ContactController;
+
 
 
 /*
@@ -36,7 +38,11 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/chaneldetails', [WaitingController::class, 'chaneldetails']);
     Route::post('/deletechanel', [WaitingController::class, 'deletechanel']);
 
-
+    Route::post('/sendcontact', [ContactController::class, 'store']);
 
 });
+
+
+
+
 // Route::post('/addchanel', [WaitingController::class, 'store']);
