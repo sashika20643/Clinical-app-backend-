@@ -77,14 +77,14 @@
                       <td class="align-middle text-center">
 
 @if ($waiting->status==0 )
-<span class="badge badge-sm bg-gradient-warning">
+<a href="{{route('changeState',$waiting->id)}}" class="badge badge-sm bg-gradient-warning">
 Waiting
 @else
-<span class="badge badge-sm bg-gradient-success">
+<a href="{{route('changeState',$waiting->id)}}"  class="badge badge-sm bg-gradient-success">
 Completed
 @endif
 
-                        </span>
+</a>
                       </td>
 
                   </tr>

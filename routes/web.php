@@ -29,6 +29,7 @@ Route::middleware([
 
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/filter/{c_id}/{status}/{date}', [DashboardController::class, 'filter'])->name('filter');
+    Route::get('/changeState/{c_id}', [DashboardController::class, 'changeState'])->name('changeState');
 
 
     Route::get('/users', [DashboardController::class, 'usersview'])->name('usersview');

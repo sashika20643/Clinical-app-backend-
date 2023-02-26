@@ -17,7 +17,8 @@ class DashboardController extends Controller
 
 $clinic=Clinic::all();
 
-$waitinglists = Waitinglist::with('user', 'clinic')
+$waitinglists = Waitinglist::with('user', 'clinic')   ->orderByDesc('date')
+->orderByDesc('possition')
     ->get();
 
         return view('Admin.index',compact('clinic','waitinglists'));
@@ -41,7 +42,7 @@ $waitinglists=$waitinglists->where('date',$date);
 }
 
 
-$waitinglists = $waitinglists->get();
+$waitinglists = $waitinglists->orderBy('possition')->get();
 
 
                 return view('Admin.index',compact('clinic','waitinglists'));
@@ -53,5 +54,22 @@ $waitinglists = $waitinglists->get();
         $users=User::all()->where('role','0');
 
         return view('Admin.users',compact('users'));
+    }
+
+
+
+    public function changeState($c_id){
+        $chanel=  Waitinglist::where('id',$c_id)->get()->first();
+
+        if($chanel->status==0){
+            $chanel->status=1;
+        }
+
+        else{
+            $chanel->status=0;
+        }
+        $chanel->save();
+        return redirect()->back();
+
     }
 }
