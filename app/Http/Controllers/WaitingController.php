@@ -49,7 +49,8 @@ public function store(Storewaiting $request){
 
         return $this->success([
             'possition' => $pos,
-            'detailes'=>$wait
+            'detailes'=>$wait,
+            'details'=>$wait
 
         ]);
 
@@ -58,9 +59,11 @@ public function yettogo(Yettogo $request){
     // return ("Yet to go");
    if( $channel=Waitinglist::where('id',$request->id)->first()){
     $count=Waitinglist::where('date',$channel->date)->where('c_id',$channel->c_id)->where('possition','<',$channel->possition)->where('status',0)->get()->count();
+    $behind= Waitinglist::where('date',$channel->date)->where('c_id',$channel->c_id)->where('possition','>',$channel->possition)->where('status',0)->get()->count();
     return $this->success([
         'possition' => $channel->possition,
-        'yetToGo'=>$count
+        'yetToGo'=>$count,
+        'behind'=>$behind
 
     ]);
 
