@@ -17,6 +17,9 @@ use App\Http\Controllers\DashboardController;
 Route::get('/', function () {
     return redirect(route('dashboard'));
 });
+Route::match(['get', 'post'], '/register', function () {
+    return redirect('/login');
+});
 
 Route::middleware([
     'auth:sanctum',
