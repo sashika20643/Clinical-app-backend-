@@ -34,6 +34,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/yettogo', [WaitingController::class, 'yettogo']);
     Route::post('/checkchennels', [WaitingController::class, 'allchanels']);
     Route::post('/chaneldetails', [WaitingController::class, 'chaneldetails']);
+    Route::post('/deletechanel', [WaitingController::class, 'deletechanel']);
+
 
 
 });

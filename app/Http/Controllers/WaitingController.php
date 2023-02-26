@@ -90,6 +90,19 @@ public function chaneldetails(Request $request){
 
     ]);
 }
+public function deletechanel(Request $request){
+    if($details=Waitinglist::where('id',$request->id)->where('u_id',$request->user()->id)->delete()){
+        return $this->success([
+            'message' =>"deleted",
+
+
+        ]);
+    }
+    else{
+        return $this->error('', 'id do not match', 401);
+         }
+
+}
 
 
 }
