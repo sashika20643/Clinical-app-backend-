@@ -62,7 +62,7 @@ public function yettogo(Yettogo $request){
     $behind= Waitinglist::where('date',$channel->date)->where('c_id',$channel->c_id)->where('possition','>',$channel->possition)->where('status',0)->get()->count();
     return $this->success([
         'possition' => $channel->possition,
-        'yetToGo'=>$count,
+        'front'=>$count,
         'behind'=>$behind
 
     ]);
