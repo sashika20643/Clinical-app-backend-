@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('c_id');
             $table->string('u_id');
             $table->string('date');
+            $table->string('possition');
+
             $table->string('status')->default(0);
             $table->timestamps();
         });
