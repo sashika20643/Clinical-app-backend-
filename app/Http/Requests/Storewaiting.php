@@ -22,8 +22,9 @@ class Storewaiting extends FormRequest
     public function rules(): array
     {
         return [
-            'date'=> ['required','string'],
-           'c_id'=>['required','string']
+            'date'=> ['string'],
+           'c_id'=>['required','int','between:1,4']
+
 
         ];
     }

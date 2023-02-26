@@ -16,17 +16,23 @@ class WaitingController extends Controller
 public function store(Storewaiting $request){
 
     $request->validated($request->all());
-if($channel=Waitinglist::where('date',$request->date)->where('c_id',$request->c_id)->where('u_id',$request->user()->id)->first()){
-    return $this->error('', 'you have already apointment on '.$request->date, 401);
-}
-    $count=Waitinglist::where('date',$request->date)->where('c_id',$request->c_id)->max('possition');
-    $pos=$count+1;
-    if($request->date){
-        $date=$request->date;
+    if($request->c_id==4){
+        $date="00-00-00";
+
+
     }
     else{
-        $date="00-00-00";
+        $date=$request->date;
+
     }
+    if($channel=Waitinglist::where('date',$date)->where('c_id',$request->c_id)->where('u_id',$request->user()->id)->first()){
+        return $this->error('', 'you have already apointment on '.$request->date, 401);
+    }
+
+
+    $count=Waitinglist::where('date',$request->date)->where('c_id',$request->c_id)->max('possition');
+    $pos=$count+1;
+
     $wait=Waitinglist::create(
         [
             'c_id'=>$request->c_id,

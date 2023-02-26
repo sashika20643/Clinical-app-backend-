@@ -110,7 +110,8 @@ Completed
     var c_id = document.getElementById("c_id").value;
     var status=document.getElementById("status").value;
     var date=document.getElementById("date").value;
-    if(date==""){
+
+    if(date=="" || c_id=='4'){
         date='00-00-00'
     }
     var url="{{route('dashboard')}}/filter/"+c_id+'/'+status+'/'+date;

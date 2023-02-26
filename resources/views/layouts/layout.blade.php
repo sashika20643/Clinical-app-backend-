@@ -74,7 +74,7 @@
 if(window.location.href ==`` ){
 document.getElementById('encrypt').classList.add("active");
 }
-if(window.location.href ==`` ){
+if(window.location.href ==`{{route('dashboard')}}` ){
     document.getElementById('dash').classList.add("active");
 }
 if(window.location.href ==`` ){

@@ -29,5 +29,10 @@ class DatabaseSeeder extends Seeder
             'id' => 3,
 
         ]);
+        DB::table('clinics')->insert([
+            'name' => 'Prep',
+            'id' => 4,
+
+        ]);
     }
 }
