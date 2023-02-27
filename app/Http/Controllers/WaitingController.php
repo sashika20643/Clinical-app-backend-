@@ -105,7 +105,7 @@ public function deletechanel(Request $request){
 }
 
 public function allprep(Request $request){
-    $prep=Waitinglist::where('u_id',$request->user()->id)->where('c_id','!=',4)->get();
+    $prep=Waitinglist::where('u_id',$request->user()->id)->where('c_id','=',4)->get();
     return $this->success([
         'preps' => $prep,
 
