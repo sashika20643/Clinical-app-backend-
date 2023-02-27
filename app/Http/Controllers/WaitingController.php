@@ -75,7 +75,7 @@ public function yettogo(Yettogo $request){
 }
 
 public function allchanels(Request $request){
-    $channel=Waitinglist::where('u_id',$request->user()->id)->get();
+    $channel=Waitinglist::where('u_id',$request->user()->id)->where('c_id','!=',4)->get();
     return $this->success([
         'chanels' => $channel,
 
@@ -102,6 +102,15 @@ public function deletechanel(Request $request){
         return $this->error('', 'id do not match', 401);
          }
 
+}
+
+public function allprep(Request $request){
+    $prep=Waitinglist::where('u_id',$request->user()->id)->where('c_id','!=',4)->get();
+    return $this->success([
+        'preps' => $prep,
+
+
+    ]);
 }
 
 
