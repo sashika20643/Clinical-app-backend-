@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ContactController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,9 @@ Route::middleware([
 
 
     Route::get('/users', [DashboardController::class, 'usersview'])->name('usersview');
+    Route::get('/contactview', [ContactController::class, 'contactview'])->name('contactview');
+
+
 
 
 });

@@ -15,5 +15,7 @@ class contact extends Model
 
 
     ];
+
+
     use HasFactory;
 }

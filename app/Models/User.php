@@ -37,6 +37,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Waitinglist::class, 'u_id');
     }
+
     /**
      * The attributes that should be hidden for serialization.
      *
